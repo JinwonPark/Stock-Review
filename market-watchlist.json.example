@@ -1,0 +1,82 @@
+{
+  "_comment": "관심 종목 (보유는 안 하지만 모니터링 중인 종목). 사용 시 'market-watchlist.json'으로 복사.",
+
+  "metadata": {
+    "last_updated": "2026-05-25",
+    "total_count": 5
+  },
+
+  "watchlist": [
+    {
+      "ticker": "000660",
+      "name": "SK하이닉스",
+      "market": "KOSPI",
+      "sector": "Semiconductors",
+      "added_date": "2026-03-10",
+      "reason": "메모리 사이클 회복 기대, 매수 검토",
+      "alert_triggers": {
+        "price_below": 120000,
+        "price_above": 160000,
+        "earnings_release_date": "2026-07-25",
+        "_note": "특정 가격 도달 시 알림, 실적 발표 D-3 알림"
+      },
+      "target_buy_weight_pct": 5,
+      "current_recommendation_jsonl": null,
+      "_recommendation_note": "분석 한 적 있다면 reports/000660_recommendations.jsonl 경로 명시"
+    },
+    {
+      "ticker": "NVDA",
+      "name": "NVIDIA",
+      "market": "NASDAQ",
+      "sector": "Semiconductors",
+      "added_date": "2026-01-15",
+      "reason": "AI 반도체 리더 — 진입 타이밍 대기",
+      "alert_triggers": {
+        "price_below_usd": 800,
+        "price_above_usd": 1100,
+        "earnings_release_date": "2026-08-20"
+      },
+      "target_buy_weight_pct": 3
+    },
+    {
+      "ticker": "TSLA",
+      "name": "Tesla",
+      "market": "NASDAQ",
+      "sector": "Automobiles",
+      "added_date": "2026-02-20",
+      "reason": "변동성 큰 종목, 큰 조정 시 진입 검토",
+      "alert_triggers": {
+        "price_below_usd": 200,
+        "rsi_below": 30
+      },
+      "target_buy_weight_pct": 2
+    }
+  ],
+
+  "sector_alerts": {
+    "_comment": "섹터·산업 단위 알림 (개별 종목 외)",
+    "semiconductors": {
+      "watch_indicators": ["DRAM 현물가", "북미 반도체 장비 수주 (B/B Ratio)"],
+      "alert_on": "사이클 전환 시그널"
+    },
+    "ai_tech": {
+      "watch_indicators": ["NVIDIA 실적", "MSFT/GOOG AI capex 가이던스"]
+    }
+  },
+
+  "macro_alerts": {
+    "_comment": "거시 환경 변화 모니터링",
+    "fed_funds_rate": {
+      "current": 5.25,
+      "alert_on_change": 0.25
+    },
+    "usd_krw": {
+      "current": 1380,
+      "alert_above": 1450,
+      "alert_below": 1300
+    },
+    "vix": {
+      "alert_above": 30
+    }
+  }
+}

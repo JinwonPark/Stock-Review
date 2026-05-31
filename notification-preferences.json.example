@@ -1,0 +1,97 @@
+{
+  "_comment": "사용 시 'notifications/preferences.json'으로 복사. notifications/ 디렉토리는 자동 생성.",
+
+  "channel": {
+    "kakaotalk": {
+      "enabled": true,
+      "mcp_server": "PlayMCP",
+      "tool": "KakaotalkChat-MemoChat",
+      "max_chars_per_message": 200,
+      "max_messages_per_event": 5,
+      "split_interval_seconds": 2
+    },
+    "_future_channels_comment": "Gmail·Slack·SMS 등 추후 추가 가능"
+  },
+
+  "triggers": {
+    "stop_loss_hit": {
+      "enabled": true,
+      "priority": "critical",
+      "_comment": "손절선 도달 — 항상 알림"
+    },
+    "invalidation_trigger_fired": {
+      "enabled": true,
+      "priority": "critical",
+      "_comment": "JSONL에 기록된 무효화 트리거 발동"
+    },
+    "target_price_base_hit": {
+      "enabled": true,
+      "priority": "high",
+      "_comment": "Base 목표가 도달"
+    },
+    "target_price_bull_hit": {
+      "enabled": true,
+      "priority": "high",
+      "_comment": "Bull 목표가 도달"
+    },
+    "new_strong_buy": {
+      "enabled": true,
+      "priority": "high",
+      "_comment": "신규 Strong BUY 추천 + devils-advocate 통과"
+    },
+    "devils_advocate_high_critique": {
+      "enabled": true,
+      "priority": "high",
+      "threshold": 25,
+      "_comment": "Devil's Advocate 점수 X 이상 시 알림 (시스템이 강한 우려 표명)"
+    },
+    "market_regime_change": {
+      "enabled": true,
+      "priority": "high",
+      "_comment": "시장 국면 큰 변화 (Bull → Bear 등)"
+    },
+    "daily_briefing": {
+      "enabled": false,
+      "priority": "routine",
+      "schedule_kst": "08:30",
+      "_comment": "매일 아침 자동 브리핑 (cron 외부 트리거 필요)"
+    },
+    "backtest_finding": {
+      "enabled": true,
+      "priority": "high",
+      "_comment": "백테스팅에서 시스템 약점 발견 시"
+    },
+    "reanalysis_needed": {
+      "enabled": true,
+      "priority": "routine",
+      "_comment": "재분석 트리거 발동 시"
+    }
+  },
+
+  "quiet_hours": {
+    "enabled": true,
+    "timezone": "Asia/Seoul",
+    "start": "22:00",
+    "end": "08:00",
+    "allow_critical_only": true,
+    "_comment": "이 시간대에는 Critical 우선순위만 즉시 발송, 나머지는 quiet_hours 종료 후 발송"
+  },
+
+  "duplicate_prevention": {
+    "window_hours": 24,
+    "_comment": "동일 종목·동일 트리거 24시간 내 1회만 발송"
+  },
+
+  "rate_limit": {
+    "max_per_hour": 10,
+    "max_per_day": 30,
+    "_comment": "알림 폭주 방지 — 초과 시 우선순위 낮은 알림은 묶어서 발송"
+  },
+
+  "user_preferences": {
+    "language": "ko",
+    "include_emojis": true,
+    "include_action_button_hint": false,
+    "_action_button_comment": "향후 카톡 비즈니스 채널 통합 시 사용 가능"
+  }
+}

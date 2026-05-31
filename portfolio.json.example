@@ -1,0 +1,88 @@
+{
+  "_comment": "사용 시 이 파일을 'portfolio.json'으로 복사하여 본인 정보로 수정. _comment 필드는 모두 제거하고 사용.",
+
+  "metadata": {
+    "user_name": "John Doe",
+    "last_updated": "2026-05-25",
+    "currency_base": "KRW",
+    "total_value_krw": 100000000
+  },
+
+  "holdings": [
+    {
+      "ticker": "005930",
+      "name": "삼성전자",
+      "market": "KOSPI",
+      "sector": "Semiconductors",
+      "currency": "KRW",
+      "shares": 350,
+      "avg_price": 72000,
+      "current_price": 75000,
+      "weight": 26.25,
+      "purchase_date": "2025-08-15",
+      "_comment": "weight는 (shares × current_price) / total_value × 100"
+    },
+    {
+      "ticker": "AAPL",
+      "name": "Apple Inc.",
+      "market": "NASDAQ",
+      "sector": "Tech Hardware",
+      "currency": "USD",
+      "shares": 50,
+      "avg_price_usd": 180,
+      "current_price_usd": 195,
+      "avg_price_krw_equivalent": 234000,
+      "current_price_krw_equivalent": 253500,
+      "weight": 12.68,
+      "purchase_date": "2025-11-20"
+    },
+    {
+      "ticker": "035720",
+      "name": "카카오",
+      "market": "KOSPI",
+      "sector": "Internet Services",
+      "currency": "KRW",
+      "shares": 200,
+      "avg_price": 55000,
+      "current_price": 48000,
+      "weight": 9.6,
+      "purchase_date": "2025-12-05"
+    }
+  ],
+
+  "cash": {
+    "krw": 25000000,
+    "usd": 5000,
+    "krw_equivalent_total": 31500000,
+    "_comment": "현금 + 현금성 자산 (MMF 등 포함)"
+  },
+
+  "cash_ratio": 31.5,
+
+  "target_weights": {
+    "_comment": "리밸런싱 시 사용할 목표 비중 (선택 입력). 없으면 portfolio-rebalancer 사용 불가.",
+    "005930": 20,
+    "AAPL": 15,
+    "035720": 10,
+    "cash": 25,
+    "_other_targets_": "여기에 미래 매수 계획 종목 추가 가능"
+  },
+
+  "risk_settings": {
+    "max_single_position_weight": 10,
+    "max_sector_weight": 30,
+    "risk_tolerance_per_trade_pct": 1.0,
+    "kelly_fraction": 0.25,
+    "_comment_kelly": "Quarter Kelly (0.25) 권고. 보수=0.125, 균형=0.25, 공격=0.5"
+  },
+
+  "user_profile": {
+    "residency": "KR",
+    "experience_years": 5,
+    "risk_appetite": "balanced",
+    "_appetite_options": "conservative / balanced / aggressive",
+    "investment_horizon_years": 10,
+    "primary_goal": "long_term_growth",
+    "_goal_options": "retirement / long_term_growth / income / speculation"
+  }
+}
